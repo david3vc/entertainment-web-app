@@ -7,10 +7,10 @@ export const NavBarBrand: React.FC = () => {
       <NavLink to="/">
         <img
           className="nav-bar__logo"
-          src="https://cdn.auth0.com/blog/hub/code-samples/hello-world/auth0-logo.svg"
+          src="https://loquacious-druid-a2a12d.netlify.app/assets/logo-8c6ec767.svg"
           alt="Auth0 shield logo"
-          width="122"
-          height="36"
+          // width="122"
+          // height="36"
         />
       </NavLink>
     </div>

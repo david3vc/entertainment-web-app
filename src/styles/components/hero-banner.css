@@ -5,7 +5,8 @@
 
   width: 100%;
 
-  background: var(--yellow-mandarine-gradient);
+  /* background: var(--yellow-mandarine-gradient); */
+  /* background: var(--azul-claro-azul-oscuro-gradient); */
 
   color: var(--black);
 
@@ -32,6 +33,10 @@
 
 .hero-banner--emerald-yellow {
   background: var(--emerald-yellow-gradient);
+}
+
+.hero-banner--prueba {
+  background: var(--prueba-gradient);
 }
 
 .hero-banner__logo {

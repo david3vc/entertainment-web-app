@@ -16,6 +16,16 @@
   --blue: #3885ff;
   --aqua: #3ec6eb;
   --emerald: #1bc99f;
+  --azul-hover: #5a698f;
+  --azul-oscuro: #10141e;
+  --azul-claro: #161d2f;
+  --rojo-naranja: #fc4747;
+
+  --prueba-gradient: linear-gradient(
+    153.07deg,
+    var(--azul-hover) -2.47%,
+    var(--white) 102.78%
+  );
 
   --yellow-mandarine-gradient: linear-gradient(
     153.07deg,
