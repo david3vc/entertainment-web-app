@@ -10,7 +10,7 @@ export const MobileNavBarBrand: React.FC<MobileNavBarBrandProps> = ({
 }) => {
   return (
     <div onClick={handleClick} className="mobile-nav-bar__brand">
-      <NavLink to="/">
+      <NavLink to="/home">
         <img
           className="mobile-nav-bar__logo"
           src="https://loquacious-druid-a2a12d.netlify.app/assets/logo-8c6ec767.svg"

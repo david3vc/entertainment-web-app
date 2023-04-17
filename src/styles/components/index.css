@@ -9,3 +9,6 @@
 @import "grids/index.css";
 @import "layouts/index.css";
 @import "angular.css";
+@import "search.css";
+@import "card-movie.css";
+@import "recommended-container.css";

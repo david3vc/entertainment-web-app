@@ -1,0 +1,26 @@
+.container-search{
+    display: flex;
+    padding: 0px 15px;
+    margin-top: 25px;
+}
+
+.container-search__input{
+    border: none;
+    width: 80%;
+    margin-left: 10px;
+    background-color: var(--azul-oscuro);
+    color: white;
+}
+
+.container-search__input:focus {
+    outline: none;
+}
+
+.container-search__input:focus-within {
+    border-top-color: var(--azul-oscuro);
+    border-right: var(--azul-oscuro);
+    border-left: var(--azul-oscuro);
+    border-bottom-color: var(--azul-hover);
+    border-style: solid;
+    border-width: 1px;
+}

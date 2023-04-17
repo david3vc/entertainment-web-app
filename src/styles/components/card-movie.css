@@ -1,0 +1,53 @@
+.container-card-movie{
+    display: flex;
+    width: 50%;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    /* z-index: 1; */
+}
+
+.container-card-movie__image{
+    width: 90%;
+    /* z-index: 4; */
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image__icon{
+    display: inline;
+    padding: 10px;
+    background-color: rgb(107, 107, 107);
+    opacity: 0.6;
+    /* z-index: 5; */
+    border-radius: 50%;
+    position: relative;
+    top: 30px;
+    left: 116px;
+}
+
+.image__icon__iconoBookmarkEmpty{
+    position: relative;
+}
+
+.image__photo{
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.container-card-movie__information {
+    display: flex;
+    width: 90%;
+    /* justify-content: space-around; */
+}
+
+.information__anio, .information__type{
+    margin-right: 10px;
+}
+
+.container-card-movie__title{
+    display: flex;
+    width: 90%;
+}

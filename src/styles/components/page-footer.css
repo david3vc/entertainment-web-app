@@ -46,7 +46,7 @@
   justify-items: center;
 
   grid-template-columns: 1fr;
-  margin-top: 3.2rem;
+  /* margin-top: 3.2rem; */
 }
 
 .page-footer-info__message {
