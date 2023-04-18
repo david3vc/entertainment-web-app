@@ -1,0 +1,39 @@
+:root{
+    --url-imagen: url("https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg");
+}
+
+.container-card-trending{
+    background-image: url("https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg");
+    /* background-image: var(--url-imagen); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    display: inline-block;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0px 10px;
+}
+
+.container-card-trending__icon{
+    /* display: block; */
+    display: flex;
+    align-self: flex-end;
+    width: 30px;
+    padding: 9px;
+    background-color: rgb(107, 107, 107);
+    opacity: 0.6;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.container-card-trending__information{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail__anio-type__anio, .detail__anio-type__type {
+    margin-right: 10px;
+}

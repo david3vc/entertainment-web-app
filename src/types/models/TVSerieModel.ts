@@ -12,5 +12,5 @@ export default interface TVSerieModel {
     original_language: string;
     vote_count: number;
     name: string;
-    original_name: boolean;
+    original_name: string;
 }
