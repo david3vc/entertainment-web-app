@@ -12,6 +12,10 @@ import { NotFoundPage } from "./pages/not-found-page";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
+import {BookmarkListContextProvider} from "./context/BookmarkListContext";
+import { useState } from "react";
+import { MovieModel, PersonModel, TVSerieModel } from "./types";
+import BookmarkList from "./pages/BookmarkList";
 
 export const App: React.FC = () => {
     const { isLoading } = useAuth0();
@@ -24,35 +28,41 @@ export const App: React.FC = () => {
         );
     }
     return (
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
-                path="/profile"
-                element={<AuthenticationGuard component={ProfilePage} />}
-            />
-            <Route path="/public" element={<HomePage />} />Movies
-            <Route
-                path="/home"
-                element={<AuthenticationGuard component={Home} />}
-            />
-            <Route
-                path="/movies"
-                element={<AuthenticationGuard component={Movies} />}
-            />
-            <Route
-                path="/series"
-                element={<AuthenticationGuard component={Series} />}
-            />
-            <Route
-                path="/protected"
-                element={<AuthenticationGuard component={ProtectedPage} />}
-            />
-            <Route
-                path="/admin"
-                element={<AuthenticationGuard component={AdminPage} />}
-            />
-            <Route path="/callback" element={<CallbackPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <BookmarkListContextProvider>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route
+                    path="/profile"
+                    element={<AuthenticationGuard component={ProfilePage} />}
+                />
+                <Route path="/public" element={<HomePage />} />Movies
+                <Route
+                    path="/home"
+                    element={<AuthenticationGuard component={Home} />}
+                />
+                <Route
+                    path="/movies"
+                    element={<AuthenticationGuard component={Movies} />}
+                />
+                <Route
+                    path="/series"
+                    element={<AuthenticationGuard component={Series} />}
+                />
+                <Route
+                    path="/bookmarked-movies"
+                    element={<AuthenticationGuard component={BookmarkList} />}
+                />
+                <Route
+                    path="/protected"
+                    element={<AuthenticationGuard component={ProtectedPage} />}
+                />
+                <Route
+                    path="/admin"
+                    element={<AuthenticationGuard component={AdminPage} />}
+                />
+                <Route path="/callback" element={<CallbackPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </BookmarkListContextProvider>
     );
 };

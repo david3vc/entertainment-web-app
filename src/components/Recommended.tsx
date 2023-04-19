@@ -39,7 +39,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                 <span>{tipoVista}</span>
             ) : (
                 <span>
-                    Found {data?.results.length} results for '{search}'
+                    Found {data?.results?.length} results for '{search}'
                 </span>
             )}
             <div className="recommended-container">
@@ -57,6 +57,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             anio={response?.release_date}
                                             media_type={response.media_type}
                                             title={response.title}
+                                            item={item}
                                         />
                                     );
                                 case TV_TYPE:
@@ -68,6 +69,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             anio={"no tiene"}
                                             media_type={response.media_type}
                                             title={response.name}
+                                            item={item}
                                         />
                                     );
                                 case PERSON_TYPE:
@@ -88,6 +90,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                                         response.media_type
                                                     }
                                                     title={response.title}
+                                                    item={item}
                                                 />
                                             );
                                         case TV_TYPE:
@@ -103,6 +106,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                                         response.media_type
                                                     }
                                                     title={response.name}
+                                                    item={item}
                                                 />
                                             );
                                     }
@@ -118,6 +122,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             anio={response?.release_date}
                                             media_type={TIPO_VISTA.movies}
                                             title={response.title}
+                                            item={item}
                                         />
                                     );
                                 case TIPO_VISTA.series:
@@ -129,6 +134,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             anio={"no tiene"}
                                             media_type={TIPO_VISTA.series}
                                             title={response.name}
+                                            item={item}
                                         />
                                     );
                             }
