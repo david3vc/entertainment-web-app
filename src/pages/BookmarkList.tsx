@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import styled from 'styled-components';
 import { PageLayout } from "../components/page-layout";
 import { useBookMarList } from "../context/BookmarkListContext";
 import Recommended from "../components/Recommended";
 import { SearchMultiResponseModel } from "../types";
 import { TIPO_VISTA } from "../constants";
+import Modal from "../components/modal/modal";
+import { Boton, ContenedorBotones, Contenido } from "../components/modal/estilos";
 
 const BookmarkList = () => {
-    const { list, setList } = useBookMarList();
+    const { list } = useBookMarList();
     const [data, setData] = useState<SearchMultiResponseModel>();
 
     useEffect(() => {
@@ -21,9 +24,23 @@ const BookmarkList = () => {
             setData(res);
         }
     }, [list]);
+
+    const [showModal1, setShowModal1] = useState(false);
+
     return (
         <PageLayout>
             <>
+                <ContenedorBotones>
+                    <Boton onClick={() => setShowModal1(true)}>Modal 1</Boton>
+                </ContenedorBotones>
+                <Modal titulo="prueba" mostrarHeader={false} showModal1={showModal1} setShowModal1={setShowModal1}>
+                    <Contenido>
+                        <h1>Ventana Modal</h1>
+                        <p>ssssssss sssssssssss sssssssssss sssssssss sssssss</p>
+                        <Boton>Aceptar</Boton>
+                    </Contenido>
+                </Modal>
+
                 <Recommended
                     data={data}
                     isSearchMulti={false}
