@@ -24,7 +24,7 @@ export const MobileNavBarTabs: React.FC<MobileNavBarTabsProps> = ({
                 icon={iconoHome}
             />
             <MobileNavBarTab
-                path="/public"
+                path="/movies"
                 label="Public"
                 handleClick={handleClick}
                 icon={iconoCategoryMovie}
@@ -32,13 +32,13 @@ export const MobileNavBarTabs: React.FC<MobileNavBarTabsProps> = ({
             {isAuthenticated && (
                 <>
                     <MobileNavBarTab
-                        path="/protected"
+                        path="/series"
                         label="Protected"
                         handleClick={handleClick}
                         icon={iconoCategoryTv}
                     />
                     <MobileNavBarTab
-                        path="/admin"
+                        path="/bookmarked-movies"
                         label="Admin"
                         handleClick={handleClick}
                         icon={iconoBookmark}

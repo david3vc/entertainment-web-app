@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import { MOVIE_TYPE, TV_TYPE } from "../constants";
 import { MovieModel, TVSerieModel } from "../types";
 
-const Trending = () => {
+interface baseProps {
+    isSearchMulti: boolean;
+}
+
+const Trending = ({ isSearchMulti }: baseProps) => {
     const { data, mutateAsync: searchTrending, isSuccess } = useGetTrending();
 
     useEffect(() => {
@@ -16,38 +20,40 @@ const Trending = () => {
     }, []);
 
     return (
-        <>
-            <span>Trending</span>
-            <div className="container-trending">
-                {(data?.results?.length ?? 0) > 0 &&
-                    data?.results.map((item, index) => {
-                        switch (item.media_type) {
-                            case MOVIE_TYPE:
-                                item = item as MovieModel;
-                                return (
-                                    <CardTrending
-                                        key={index}
-                                        anio={item.release_date}
-                                        media_type={item.media_type}
-                                        title={item.original_title}
-                                        url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
-                                    />
-                                );
-                            case TV_TYPE:
-                                item = item as TVSerieModel;
-                                return (
-                                    <CardTrending
-                                        key={index}
-                                        anio={"no tiene"}
-                                        media_type={item.media_type}
-                                        title={item.original_name}
-                                        url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
-                                    />
-                                );
-                        }
-                    })}
-            </div>
-        </>
+        !isSearchMulti ? (
+            <>
+                <span>Trending</span>
+                <div className="container-trending">
+                    {(data?.results?.length ?? 0) > 0 &&
+                        data?.results.map((item, index) => {
+                            switch (item.media_type) {
+                                case MOVIE_TYPE:
+                                    item = item as MovieModel;
+                                    return (
+                                        <CardTrending
+                                            key={index}
+                                            anio={item.release_date}
+                                            media_type={item.media_type}
+                                            title={item.original_title}
+                                            url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
+                                        />
+                                    );
+                                case TV_TYPE:
+                                    item = item as TVSerieModel;
+                                    return (
+                                        <CardTrending
+                                            key={index}
+                                            anio={"no tiene"}
+                                            media_type={item.media_type}
+                                            title={item.original_name}
+                                            url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
+                                        />
+                                    );
+                            }
+                        })}
+                </div>
+            </>
+        ) : (<></>)
     );
 };
 

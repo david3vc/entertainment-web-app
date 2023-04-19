@@ -4,28 +4,83 @@ import useSearchMovie from "../hooks/useSearchMovie";
 import useSearchMulti from "../hooks/useSearchMulti";
 import { useEffect } from "react";
 import { SearchMultiResponseModel } from "../types";
+import useGetTrending from "../hooks/useGetTrending";
+import { TIPO_VISTA } from "../constants";
+import useSearchTVSeries from "../hooks/useSearchTVSeries";
 
 interface baseProps {
-    setData: React.Dispatch<React.SetStateAction<SearchMultiResponseModel | undefined>>;
+    setData: React.Dispatch<
+        React.SetStateAction<SearchMultiResponseModel | undefined>
+    >;
+    setIsSearchMulti: React.Dispatch<React.SetStateAction<boolean>>;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    tipoVista: string;
 }
 
-const Search = ({setData}: baseProps) => {
+const Search = ({
+    setData,
+    setIsSearchMulti,
+    setSearch,
+    tipoVista,
+}: baseProps) => {
     const formik = useFormik({
         initialValues: {
             query: "",
         },
-        onSubmit: (values) => searchMulti(values.query),
+        onSubmit: (values) => {
+            switch (tipoVista) {
+                case TIPO_VISTA.home:
+                    searchMulti(values.query);
+                    break;
+                case TIPO_VISTA.movies:
+                    searchMovie(values.query);
+                    break;
+                case TIPO_VISTA.series:
+                    searchTVSeries(values.query);
+                    break;
+            }
+        },
     });
 
-    const {
-        data,
-        mutateAsync: searchMulti,
-        isSuccess,
-    } = useSearchMulti();
+    const { data, mutateAsync: searchMulti, isSuccess } = useSearchMulti();
+    const { data: dataMovie, mutateAsync: searchMovie, isSuccess: isMovie } = useSearchMovie();
+    const { data: dataTVSeries, mutateAsync: searchTVSeries, isSuccess: isTVSeries } = useSearchTVSeries();
 
-    useEffect(()=>{
-        if(isSuccess) setData(data)
-    },[isSuccess])
+    // const {
+    //     data: dataTrending,
+    //     mutateAsync: searchTrending,
+    //     isSuccess: isTrending,
+    // } = useGetTrending();
+
+    useEffect(() => {
+        if (isSuccess) {
+            setData(data);
+            setIsSearchMulti(true);
+            setSearch(formik.values.query);
+        } else setIsSearchMulti(false);
+    }, [isSuccess]);
+
+    // useEffect(() => {
+    //     if (isTrending) {
+    //         setData(dataTrending);
+    //         setIsSearchMulti(true);
+    //         setSearch(formik.values.query);
+    //     } else setIsSearchMulti(false);
+    // }, [isTrending]);
+
+    useEffect(() => {
+        if (isMovie) {
+            setData(dataMovie);
+            setSearch(formik.values.query);
+        }
+    }, [isMovie]);
+
+    useEffect(() => {
+        if (isTVSeries) {
+            setData(dataTVSeries);
+            setSearch(formik.values.query);
+        }
+    }, [isTVSeries]);
 
     const handleKeyDown = (event: any) => {
         if (event.key === "Enter") {
