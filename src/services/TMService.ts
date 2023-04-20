@@ -1,4 +1,4 @@
-import { SearchMovieResponseModel, SearchMultiResponseModel, SearchTVSeriesResponseModel } from '../types';
+import { MovieDetailModel, MovieVideosModel, SearchMovieResponseModel, SearchMultiResponseModel, SearchTVSeriesResponseModel } from '../types';
 import axios, { AxiosResponse } from 'axios';
 import GetTrendingResponseModel from '../types/models/GetTrendingResponseModel';
 
@@ -16,3 +16,9 @@ export const searchMulti = async (req: string): Promise<AxiosResponse<SearchMult
 
 export const searchTrending = async (media_type: string, time_window: string): Promise<AxiosResponse<GetTrendingResponseModel>> =>
 	await axios.get<GetTrendingResponseModel>(`${API_TMDB_URL}/trending/${media_type}/${time_window}?api_key=${API_KEY_TMDB}`);
+
+export const getMovieById = async (movie_id: number): Promise<AxiosResponse<MovieDetailModel>> =>
+	await axios.get<MovieDetailModel>(`${API_TMDB_URL}/movie/${movie_id}?api_key=${API_KEY_TMDB}`);
+
+export const getMovieVideosById = async (movie_id: number): Promise<AxiosResponse<MovieVideosModel>> =>
+	await axios.get<MovieVideosModel>(`${API_TMDB_URL}/movie/${movie_id}/videos?api_key=${API_KEY_TMDB}`);

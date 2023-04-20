@@ -3,31 +3,40 @@ import styled from "styled-components";
 
 interface props {
     children: ReactNode;
-    showModal1: boolean;
-    setShowModal1: React.Dispatch<React.SetStateAction<boolean>>;
+    showModal: boolean;
+    setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
     titulo: string;
     mostrarHeader: boolean;
+    imagen: string;
+    padding: string;
+}
+
+interface IContenedor {
+    imagen: string;
+    padding: string;
 }
 
 const modal = ({
     children,
-    showModal1,
-    setShowModal1,
+    showModal,
+    setShowModal,
     titulo,
-    mostrarHeader
+    mostrarHeader,
+    imagen,
+    padding
 }: props) => {
     return (
         <>
-            {showModal1 && (
+            {showModal && (
                 <Overlay>
-                    <ContenedorModal>
+                    <ContenedorModal imagen={imagen} padding={padding}>
                         {mostrarHeader && (
                             <EncabezadoModal>
                                 <h3>{titulo}</h3>
                             </EncabezadoModal>
                         )}
 
-                        <BotonCerrar onClick={() => setShowModal1(false)}>
+                        <BotonCerrar onClick={() => setShowModal(false)}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -39,7 +48,6 @@ const modal = ({
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </BotonCerrar>
-
                         {children}
                     </ContenedorModal>
                 </Overlay>
@@ -65,14 +73,22 @@ const Overlay = styled.div`
     z-index: 30;
 `;
 
-const ContenedorModal = styled.div`
+const ContenedorModal = styled.div<IContenedor>`
     width: 500px;
     min-height: 100px;
-    background: #fff;
+    
     position: relative;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 8px 7px 29px 0px;
-    padding: 20px;    
+    padding: ${props => props.padding};
+    
+    
+    background-image: linear-gradient(to bottom, rgba(71, 71, 71, 0.52), rgba(28, 28, 28, 0.73)), url("${props => props.imagen}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    
 `;
 
 const EncabezadoModal = styled.div`
@@ -80,13 +96,11 @@ const EncabezadoModal = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e8e8e8;
 
     h3 {
         font-weight: 500;
         font-size: 16px;
-        color: #1766dc;
+        color: white;
         padding: 0;
         margin: 0;
     }
@@ -104,7 +118,7 @@ const BotonCerrar = styled.div`
     cursor: pointer;
     transition: 0.3s ease all;
     border-radius: 5px;
-    color: #1766dc;
+    color: #fc4747;
 
     &:hover {
         background: #f2f2f2;

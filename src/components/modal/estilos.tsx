@@ -9,12 +9,13 @@ export const ContenedorBotones = styled.div`
 `;
 
 export const Boton = styled.button`
-	display: block;
+	display: flex;
+	align-items: center;
 	padding: 10px 30px;
 	border-radius: 100px;
 	color: #fff;
 	border: none;
-	background: #1766DC;
+	background: #fc4747;
 	cursor: pointer;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 500;

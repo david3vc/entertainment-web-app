@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styled from 'styled-components';
 import { PageLayout } from "../components/page-layout";
 import { useBookMarList } from "../context/BookmarkListContext";
 import Recommended from "../components/Recommended";
@@ -33,7 +32,7 @@ const BookmarkList = () => {
                 <ContenedorBotones>
                     <Boton onClick={() => setShowModal1(true)}>Modal 1</Boton>
                 </ContenedorBotones>
-                <Modal titulo="prueba" mostrarHeader={false} showModal1={showModal1} setShowModal1={setShowModal1}>
+                <Modal titulo="prueba" mostrarHeader={false} showModal={showModal1} setShowModal={setShowModal1}>
                     <Contenido>
                         <h1>Ventana Modal</h1>
                         <p>ssssssss sssssssssss sssssssssss sssssssss sssssss</p>
