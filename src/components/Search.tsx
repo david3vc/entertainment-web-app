@@ -30,7 +30,11 @@ const Search = ({
         onSubmit: (values) => {
             switch (tipoVista) {
                 case TIPO_VISTA.home:
-                    searchMulti(values.query);
+                    const params = {
+                        req: values.query,
+                        page: 1
+                    }
+                    searchMulti(params);
                     break;
                 case TIPO_VISTA.movies:
                     searchMovie(values.query);

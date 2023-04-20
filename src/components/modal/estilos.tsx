@@ -28,7 +28,6 @@ export const Boton = styled.button`
 export const Contenido = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	h1 {
 		font-size: 42px;
 		font-weight: 700;

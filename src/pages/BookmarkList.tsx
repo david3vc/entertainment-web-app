@@ -29,17 +29,6 @@ const BookmarkList = () => {
     return (
         <PageLayout>
             <>
-                <ContenedorBotones>
-                    <Boton onClick={() => setShowModal1(true)}>Modal 1</Boton>
-                </ContenedorBotones>
-                <Modal titulo="prueba" mostrarHeader={false} showModal={showModal1} setShowModal={setShowModal1}>
-                    <Contenido>
-                        <h1>Ventana Modal</h1>
-                        <p>ssssssss sssssssssss sssssssssss sssssssss sssssss</p>
-                        <Boton>Aceptar</Boton>
-                    </Contenido>
-                </Modal>
-
                 <Recommended
                     data={data}
                     isSearchMulti={false}

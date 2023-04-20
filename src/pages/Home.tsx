@@ -6,6 +6,8 @@ import Recommended from "../components/Recommended";
 import { SearchMultiResponseModel } from "../types";
 import { TIPO_VISTA } from "../constants";
 import useGetTrending from "../hooks/useGetTrending";
+import { Boton } from "../components/modal/estilos";
+import useSearchMulti from "../hooks/useSearchMulti";
 
 const Home = () => {
     const [data, setData] = useState<SearchMultiResponseModel>();
@@ -18,6 +20,8 @@ const Home = () => {
         isSuccess,
     } = useGetTrending();
 
+    const { data: dataSearchMulti, mutateAsync: searchMulti, isSuccess: isSuccessSearchMulti } = useSearchMulti();
+
     useEffect(() => {
         const params = {
             media_type: "movie",
@@ -25,6 +29,21 @@ const Home = () => {
         };
         searchTrending(params);
     }, []);
+
+    useEffect(() => {
+        if(isSuccessSearchMulti) {
+            setData(dataSearchMulti)
+        }
+    }, [isSuccessSearchMulti]);
+
+    const loadingMore = () => {
+        console.log('loading more')
+        const params = {
+            req: search,
+            page: (data?.page ?? 0)+1
+        }
+        searchMulti(params)
+    }
 
     return (
         <PageLayout>
@@ -38,6 +57,9 @@ const Home = () => {
                         <Recommended data={dataRecommended} isSearchMulti={isSearchMulti} search={search} tipoVista={TIPO_VISTA.home} />
                     )
                 }
+                <div className="btn-loading-more" style={{margin: 'auto', marginTop: '35px'}}>
+                    <Boton onClick={loadingMore}>Load more</Boton>
+                </div>
             </>
         </PageLayout>
     );

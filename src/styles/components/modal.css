@@ -1,0 +1,20 @@
+.contenido__tagline{
+    font-style: oblique;
+    color: rgb(190, 190, 190);
+}
+
+.contenido__tagline, .contenido__overview__caption{
+    margin-top: 10px;
+}
+
+.contenido__overview__caption{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contenido__boton{
+    display: flex;
+    margin: auto;
+    margin-top: 15px;
+}

@@ -9,6 +9,7 @@ interface props {
     mostrarHeader: boolean;
     imagen: string;
     padding: string;
+    anio: string;
 }
 
 interface IContenedor {
@@ -21,6 +22,7 @@ const modal = ({
     showModal,
     setShowModal,
     titulo,
+    anio,
     mostrarHeader,
     imagen,
     padding
@@ -32,7 +34,7 @@ const modal = ({
                     <ContenedorModal imagen={imagen} padding={padding}>
                         {mostrarHeader && (
                             <EncabezadoModal>
-                                <h3>{titulo}</h3>
+                                <h3>{titulo} <span style={{color: 'rgb(190, 190, 190)'}}>{anio}</span></h3>
                             </EncabezadoModal>
                         )}
 
@@ -78,7 +80,7 @@ const ContenedorModal = styled.div<IContenedor>`
     min-height: 100px;
     
     position: relative;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 8px 7px 29px 0px;
     padding: ${props => props.padding};
     
@@ -96,6 +98,7 @@ const EncabezadoModal = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    width: 90%;
 
     h3 {
         font-weight: 500;

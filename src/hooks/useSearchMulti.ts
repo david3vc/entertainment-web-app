@@ -3,10 +3,15 @@ import { SearchMultiResponseModel } from "../types";
 import { FetchError } from "../utils";
 import { TMService } from "../services";
 
-const useSearchMulti = (): UseMutationResult<SearchMultiResponseModel, FetchError<SearchMultiResponseModel>, string> => {
+interface ISearchMulti {
+	req: string;
+	page: number;
+}
+
+const useSearchMulti = (): UseMutationResult<SearchMultiResponseModel, FetchError<SearchMultiResponseModel>, ISearchMulti> => {
 	return useMutation({
-		mutationFn: async (req: string) =>
-			await TMService.searchMulti(req).then(res => res.data),
+		mutationFn: async ({req, page}: ISearchMulti) =>
+			await TMService.searchMulti(req, page).then(res => res.data),
 	});
 };
 

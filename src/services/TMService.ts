@@ -11,8 +11,8 @@ export const searchMovie = async (req: string): Promise<AxiosResponse<SearchMovi
 export const searchTVSeries = async (req: string): Promise<AxiosResponse<SearchTVSeriesResponseModel>> =>
 	await axios.get<SearchTVSeriesResponseModel>(`${API_TMDB_URL}/search/tv?api_key=${API_KEY_TMDB}&query=${req}`);
 
-export const searchMulti = async (req: string): Promise<AxiosResponse<SearchMultiResponseModel>> =>
-	await axios.get<SearchMultiResponseModel>(`${API_TMDB_URL}/search/multi?api_key=${API_KEY_TMDB}&query=${req}`);
+export const searchMulti = async (req: string, page: number): Promise<AxiosResponse<SearchMultiResponseModel>> =>
+	await axios.get<SearchMultiResponseModel>(`${API_TMDB_URL}/search/multi?api_key=${API_KEY_TMDB}&query=${req}&page=${page}`);
 
 export const searchTrending = async (media_type: string, time_window: string): Promise<AxiosResponse<GetTrendingResponseModel>> =>
 	await axios.get<GetTrendingResponseModel>(`${API_TMDB_URL}/trending/${media_type}/${time_window}?api_key=${API_KEY_TMDB}`);

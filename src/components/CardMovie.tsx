@@ -127,7 +127,8 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
 
             <Modal
                 padding="20px"
-                titulo={`${data?.title} (${data?.release_date?.substring(
+                titulo={`${data?.title}`}
+                anio={`(${data?.release_date?.substring(
                     0,
                     4
                 )})`}
@@ -138,13 +139,13 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
                     showModal
                         ? `https://image.tmdb.org/t/p/original${
                               data?.belongs_to_collection?.backdrop_path ??
-                              data?.backdrop_path
+                              data?.poster_path
                           }`
                         : ""
                 }
             >
                 <Contenido>
-                    <div className="generos">
+                    <div className="contenido__generos">
                         {(data?.genres?.length ?? 0) > 0 &&
                             data?.genres.map((genre, index) =>
                                 index !== data?.genres?.length - 1 ? (
@@ -158,26 +159,28 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
                             . {duracion?.hours}h {duracion?.minutes}m
                         </span>
                     </div>
-                    <div className="tagline">
+                    <div className="contenido__tagline">
                         <span>{data?.tagline}</span>
                     </div>
-                    <div className="overview">
-                        <h5>Overview</h5>
-                        <span>{data?.overview}</span>
+                    <div className="contenido__overview">
+                        <span className="contenido__overview__caption">Overview</span>
+                        <span className="contenido__overview__paragraph">{data?.overview}</span>
                     </div>
-                    <Boton onClick={() => setShowTrailer(true)}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-play-fill"
-                            viewBox="0 0 16 16"
-                        >
-                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                        </svg>
-                        <span>Play Trailer</span>
-                    </Boton>
+                    <div className="contenido__boton">
+                        <Boton onClick={() => setShowTrailer(true)}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-play-fill"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                            </svg>
+                            <span>Play Trailer</span>
+                        </Boton>
+                    </div>
                 </Contenido>
             </Modal>
 
@@ -188,6 +191,7 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
                 titulo="Trailer"
                 mostrarHeader={false}
                 imagen=""
+                anio=""
             >
                 <YouTube videoId={trailer?.key} opts={{width: "100%", height: "200px"}} />
             </Modal>
