@@ -36,6 +36,7 @@ const Trending = ({ isSearchMulti }: baseProps) => {
                                             media_type={item.media_type}
                                             title={item.original_title}
                                             url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
+                                            item={item}
                                         />
                                     );
                                 case TV_TYPE:
@@ -47,6 +48,7 @@ const Trending = ({ isSearchMulti }: baseProps) => {
                                             media_type={item.media_type}
                                             title={item.original_name}
                                             url_img={`url(https://image.tmdb.org/t/p/original${item.poster_path})`}
+                                            item={item}
                                         />
                                     );
                             }

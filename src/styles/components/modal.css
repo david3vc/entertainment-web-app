@@ -3,6 +3,10 @@
     color: rgb(190, 190, 190);
 }
 
+.contenido__overview{
+    width: 100%;
+}
+
 .contenido__tagline, .contenido__overview__caption{
     margin-top: 10px;
 }
@@ -11,6 +15,14 @@
     display: block;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.contenido__overview__paragraph{
+    display: block;
+    /* width: 100%; */
+    /* position: relative; */
+    overflow: scroll;
+    
 }
 
 .contenido__boton{
