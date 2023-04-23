@@ -67,7 +67,7 @@ const Overlay = styled.div`
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
-    padding: 40px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@ const Overlay = styled.div`
 `;
 
 const ContenedorModal = styled.div<IContenedor>`
-    width: 300px;
+    width: 100%;
     min-height: 100px;
     
     position: relative;
@@ -90,19 +90,19 @@ const ContenedorModal = styled.div<IContenedor>`
     background-size: cover;
     background-position: center center;
 
-    
+    font-size: 14px;
 `;
 
 const EncabezadoModal = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 90%;
 
     h3 {
-        font-weight: 500;
-        font-size: 16px;
+        font-weight: 600;
+        font-size: 20px;
         color: white;
         padding: 0;
         margin: 0;

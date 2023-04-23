@@ -5,7 +5,8 @@ import SearchMultiResponseModel from './models/SearchMultiResponseModel'
 import SearchMovieResponseModel from './models/SearchMovieResponseModel'
 import SearchTVSeriesResponseModel from './models/SearchTVSeriesResponseModel'
 import MovieDetailModel from './models/MovieDetailModel'
-import MovieVideosModel from './models/MovieVideosModel'
+import GetVideosModel from './models/GetVideosModel'
+import TvDetailModel from './models/TvDetailModel'
 
 export type {
   MovieModel,
@@ -15,5 +16,6 @@ export type {
   TVSerieModel,
   SearchTVSeriesResponseModel,
   MovieDetailModel,
-  MovieVideosModel,
+  GetVideosModel,
+  TvDetailModel,
 }

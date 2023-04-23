@@ -17,7 +17,7 @@ export const Boton = styled.button`
 	border: none;
 	background: #fc4747;
 	cursor: pointer;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Outfit', sans-serif;
 	font-weight: 500;
 	transition: .3s ease all;
 	&:hover {

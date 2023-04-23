@@ -55,7 +55,7 @@ const CardTrending = ({ anio, media_type, title, url_img, item }: baseProps) => 
                 <div className="container-card-trending__information">
                     <div className="information__detail">
                         <div className="informacion__detail__anio-type">
-                            <span className="detail__anio-type__anio">{anio}</span>
+                            <span className="detail__anio-type__anio">{anio?.substring(0, 4)}</span>
                             <span className="detail__anio-type__type">
                                 <img src={iconoMovie} alt="" />
                                 <span>{media_type}</span>

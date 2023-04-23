@@ -1,4 +1,4 @@
-import { MovieDetailModel, MovieVideosModel, SearchMovieResponseModel, SearchMultiResponseModel, SearchTVSeriesResponseModel } from '../types';
+import { MovieDetailModel, GetVideosModel, SearchMovieResponseModel, SearchMultiResponseModel, SearchTVSeriesResponseModel, TvDetailModel } from '../types';
 import axios, { AxiosResponse } from 'axios';
 import GetTrendingResponseModel from '../types/models/GetTrendingResponseModel';
 
@@ -20,5 +20,11 @@ export const searchTrending = async (media_type: string, time_window: string): P
 export const getMovieById = async (movie_id: number): Promise<AxiosResponse<MovieDetailModel>> =>
 	await axios.get<MovieDetailModel>(`${API_TMDB_URL}/movie/${movie_id}?api_key=${API_KEY_TMDB}`);
 
-export const getMovieVideosById = async (movie_id: number): Promise<AxiosResponse<MovieVideosModel>> =>
-	await axios.get<MovieVideosModel>(`${API_TMDB_URL}/movie/${movie_id}/videos?api_key=${API_KEY_TMDB}`);
+export const getMovieVideosById = async (movie_id: number): Promise<AxiosResponse<GetVideosModel>> =>
+	await axios.get<GetVideosModel>(`${API_TMDB_URL}/movie/${movie_id}/videos?api_key=${API_KEY_TMDB}`);
+
+export const getTvById = async (tv_id: number): Promise<AxiosResponse<TvDetailModel>> =>
+	await axios.get<TvDetailModel>(`${API_TMDB_URL}/tv/${tv_id}?api_key=${API_KEY_TMDB}`);
+
+export const getTvVideosById = async (tv_id: number): Promise<AxiosResponse<GetVideosModel>> =>
+	await axios.get<GetVideosModel>(`${API_TMDB_URL}/tv/${tv_id}/videos?api_key=${API_KEY_TMDB}`);

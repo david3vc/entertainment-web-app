@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     /* z-index: 1; */
+    font-size: 12px;
 }
 
 .container-card-movie__image{
@@ -50,4 +51,9 @@
 .container-card-movie__title{
     display: flex;
     width: 90%;
+}
+
+.title__term{
+    font-size: 13px;
+    font-weight: bold;
 }

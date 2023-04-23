@@ -8,6 +8,7 @@ import {
 } from "../types";
 import { MOVIE_TYPE, PERSON_TYPE, TIPO_VISTA, TV_TYPE } from "../constants";
 import useGetTrending from "../hooks/useGetTrending";
+import { useBookMarList } from "../context/BookmarkListContext";
 
 interface baseProps {
     data: SearchMultiResponseModel | undefined;
@@ -36,9 +37,9 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
     return (
         <>
             {!isSearchMulti ? (
-                <span>{tipoVista}</span>
+                <span className="recommended-tipo-vista">{tipoVista}</span>
             ) : (
-                <span>
+                <span className="found-results">
                     Found {data?.results?.length} results for '{search}'
                 </span>
             )}
@@ -66,7 +67,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                         <CardMovie
                                             url_img={response.poster_path}
                                             key={index}
-                                            anio={"no tiene"}
+                                            anio={response.first_air_date}
                                             media_type={response.media_type}
                                             title={response.name}
                                             item={item}
@@ -101,7 +102,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                                         response.poster_path
                                                     }
                                                     key={index}
-                                                    anio={"no tiene"}
+                                                    anio={response.first_air_date}
                                                     media_type={
                                                         response.media_type
                                                     }
@@ -131,7 +132,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                         <CardMovie
                                             url_img={response.poster_path}
                                             key={index}
-                                            anio={"no tiene"}
+                                            anio={response.first_air_date}
                                             media_type={TIPO_VISTA.series}
                                             title={response.name}
                                             item={item}

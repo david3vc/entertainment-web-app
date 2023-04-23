@@ -1,0 +1,39 @@
+.container-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+}
+
+.container-profile__header{
+    margin: 30px 0px;
+}
+
+.container-profile__header__avatar{
+    border-radius: 50%;
+    box-shadow: 2px 13px 65px 17px rgba(110,110,110,0.31);
+}
+
+.container-profile__details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.details__item{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding: 15px 0px;
+    border-bottom: solid 1px #5a698f;
+}
+
+.details__item__term{
+    color: rgb(168, 168, 168);
+}
+
+.bottom-logout{
+    margin-top: 50px;
+}

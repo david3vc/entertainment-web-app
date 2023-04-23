@@ -22,7 +22,7 @@ const Trending = ({ isSearchMulti }: baseProps) => {
     return (
         !isSearchMulti ? (
             <>
-                <span>Trending</span>
+                <span className="trending-term">Trending</span>
                 <div className="container-trending">
                     {(data?.results?.length ?? 0) > 0 &&
                         data?.results.map((item, index) => {

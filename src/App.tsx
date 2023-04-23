@@ -16,6 +16,7 @@ import {BookmarkListContextProvider} from "./context/BookmarkListContext";
 import { useState } from "react";
 import { MovieModel, PersonModel, TVSerieModel } from "./types";
 import BookmarkList from "./pages/BookmarkList";
+import Profile from "./pages/Profile";
 
 export const App: React.FC = () => {
     const { isLoading } = useAuth0();
@@ -33,7 +34,7 @@ export const App: React.FC = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route
                     path="/profile"
-                    element={<AuthenticationGuard component={ProfilePage} />}
+                    element={<AuthenticationGuard component={Profile} />}
                 />
                 <Route path="/public" element={<HomePage />} />Movies
                 <Route
