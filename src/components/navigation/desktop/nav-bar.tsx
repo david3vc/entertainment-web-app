@@ -8,7 +8,7 @@ export const NavBar: React.FC = () => {
     <div className="nav-bar__container">
       <nav className="nav-bar">
         <NavBarBrand />
-        {/* <NavBarTabs /> */}
+        <NavBarTabs />
         <NavBarButtons />
       </nav>
     </div>

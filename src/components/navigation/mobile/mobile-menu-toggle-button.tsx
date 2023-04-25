@@ -24,8 +24,6 @@ export const MobileMenuToggleButton: React.FC<MobileMenuToggleButtonProps> = ({
             id="mobile-menu-toggle-button"
             onClick={handleClick}
         >
-            {/* {icon} */}
-            {/* <FontAwesomeIcon icon={faBars} /> */}
             <img src={user.picture} alt="Profile" className="profile__avatar-menu" />
         </span>
     );

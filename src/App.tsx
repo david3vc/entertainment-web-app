@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { CallbackPage } from "./pages/callback-page";
 import { useAuth0 } from "@auth0/auth0-react";
-import { PageLoader } from "./components/page-loader";
+// import { PageLoader } from "./components/page-loader";
 import { HomePage } from "./pages/home-page";
 import { PublicPage } from "./pages/public-page";
 import { AuthenticationGuard } from "./components/authentication-guard";
@@ -17,15 +17,17 @@ import { useState } from "react";
 import { MovieModel, PersonModel, TVSerieModel } from "./types";
 import BookmarkList from "./pages/BookmarkList";
 import Profile from "./pages/Profile";
+import PageLoading from "./components/PageLoading";
+import { PageFooter } from "./components/page-footer";
 
 export const App: React.FC = () => {
     const { isLoading } = useAuth0();
 
     if (isLoading) {
         return (
-            <div className="page-layout">
-                <PageLoader />
-            </div>
+            // <div className="page-layout">
+                <PageLoading />
+            // </div>
         );
     }
     return (
@@ -64,6 +66,7 @@ export const App: React.FC = () => {
                 <Route path="/callback" element={<CallbackPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <PageFooter footerClass="footer-desktop" />
         </BookmarkListContextProvider>
     );
 };

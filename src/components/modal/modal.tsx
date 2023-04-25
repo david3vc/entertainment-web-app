@@ -15,6 +15,7 @@ interface props {
 interface IContenedor {
     imagen: string;
     padding: string;
+    titulo: string;
 }
 
 const modal = ({
@@ -31,7 +32,7 @@ const modal = ({
         <>
             {showModal && (
                 <Overlay>
-                    <ContenedorModal imagen={imagen} padding={padding}>
+                    <ContenedorModal imagen={imagen} padding={padding} titulo={titulo}>
                         {mostrarHeader && (
                             <EncabezadoModal>
                                 <h3>{titulo} <span style={{color: 'rgb(190, 190, 190)'}}>{anio}</span></h3>
@@ -91,6 +92,12 @@ const ContenedorModal = styled.div<IContenedor>`
     background-position: center center;
 
     font-size: 14px;
+
+    @media screen and (min-width: 992px) {
+        width: ${props => props.titulo === 'Trailer' ? '65%': '40%'};
+        padding: ${props => props.titulo !== 'Trailer' ? '30px': '0px'};
+        height: ${props => props.titulo === 'Trailer' ? '500px': 'auto'};
+    }
 `;
 
 const EncabezadoModal = styled.div`
@@ -106,6 +113,12 @@ const EncabezadoModal = styled.div`
         color: white;
         padding: 0;
         margin: 0;
+    }
+
+    @media screen and (min-width: 992px) {
+        h3 {
+            font-size: 26px;
+        }
     }
 `;
 

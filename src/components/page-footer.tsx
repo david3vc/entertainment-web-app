@@ -1,9 +1,13 @@
 import { PageFooterHyperlink } from "./page-footer-hyperlink";
 import iconoGitHub from "../assets/images/logo-github.svg";
 
-export const PageFooter = () => {
+interface IPageFooter {
+    footerClass: string;
+}
+
+export const PageFooter = ({footerClass}:IPageFooter) => {
     return (
-        <footer className="page-footer">
+        <footer className={`page-footer ${footerClass}`}>
             <div className="page-footer-grid">
                 <div className="page-footer-grid__brand">
                     <div className="page-footer-brand">

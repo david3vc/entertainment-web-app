@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import CardMovie from "./CardMovie";
 import {
     MovieModel,
@@ -7,8 +6,6 @@ import {
     TVSerieModel,
 } from "../types";
 import { MOVIE_TYPE, PERSON_TYPE, TIPO_VISTA, TV_TYPE } from "../constants";
-import useGetTrending from "../hooks/useGetTrending";
-import { useBookMarList } from "../context/BookmarkListContext";
 
 interface baseProps {
     data: SearchMultiResponseModel | undefined;
@@ -18,21 +15,6 @@ interface baseProps {
 }
 
 const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
-    // const {
-    //     data: dataRecommended,
-    //     mutateAsync: searchTrending,
-    //     isSuccess,
-    // } = useGetTrending();
-
-    // useEffect(() => {
-    //     const params = {
-    //         media_type: "movie",
-    //         time_window: "week",
-    //     };
-    //     searchTrending(params);
-    // }, []);
-
-    // console.log(data, data?.results?.length);
 
     return (
         <>
@@ -121,7 +103,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             url_img={response.poster_path}
                                             key={index}
                                             anio={response?.release_date}
-                                            media_type={TIPO_VISTA.movies}
+                                            media_type={MOVIE_TYPE}
                                             title={response.title}
                                             item={item}
                                         />
@@ -133,7 +115,7 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                                             url_img={response.poster_path}
                                             key={index}
                                             anio={response.first_air_date}
-                                            media_type={TIPO_VISTA.series}
+                                            media_type={TV_TYPE}
                                             title={response.name}
                                             item={item}
                                         />
@@ -142,95 +124,6 @@ const Recommended = ({ data, isSearchMulti, search, tipoVista }: baseProps) => {
                         }
                     })}
             </div>
-            {/* {!isSearchMulti ? <span>{tipoVista}</span> : <span>Found {data?.results.length} results for '{search}'</span> }
-            <div className="recommended-container">
-                {(data?.results?.length ?? 0) > 0
-                    ? data?.results?.map((item, index) => {
-                          let response: MovieModel | TVSerieModel | PersonModel;
-                          switch (item.media_type) {
-                              case MOVIE_TYPE:
-                                  response = item as MovieModel;
-                                  return (
-                                      <CardMovie
-                                          url_img={response.poster_path}
-                                          key={index}
-                                          anio={response?.release_date}
-                                          media_type={response.media_type}
-                                          title={response.title}
-                                      />
-                                  );
-                              case TV_TYPE:
-                                  response = item as TVSerieModel;
-                                  return (
-                                      <CardMovie
-                                          url_img={response.poster_path}
-                                          key={index}
-                                          anio={"no tiene"}
-                                          media_type={response.media_type}
-                                          title={response.name}
-                                      />
-                                  );
-                              case PERSON_TYPE:
-                                  response = item as PersonModel;
-                                  switch (response.known_for.media_type) {
-                                      case MOVIE_TYPE:
-                                          response = item as MovieModel;
-                                          return (
-                                              <CardMovie
-                                                  url_img={response.poster_path}
-                                                  key={index}
-                                                  anio={response?.release_date}
-                                                  media_type={
-                                                      response.media_type
-                                                  }
-                                                  title={response.title}
-                                              />
-                                          );
-                                      case TV_TYPE:
-                                          response = item as TVSerieModel;
-                                          return (
-                                              <CardMovie
-                                                  url_img={response.poster_path}
-                                                  key={index}
-                                                  anio={"no tiene"}
-                                                  media_type={
-                                                      response.media_type
-                                                  }
-                                                  title={response.name}
-                                              />
-                                          );
-                                  }
-                          }
-                      })
-                    : (dataRecommended?.results?.length ?? 0) > 0 &&
-                      dataRecommended?.results?.map((item, index) => {
-                          let response: MovieModel | TVSerieModel;
-                          switch (item.media_type) {
-                              case MOVIE_TYPE:
-                                  response = item as MovieModel;
-                                  return (
-                                      <CardMovie
-                                          url_img={response.poster_path}
-                                          key={index}
-                                          anio={response?.release_date}
-                                          media_type={response.media_type}
-                                          title={response.title}
-                                      />
-                                  );
-                              case TV_TYPE:
-                                  response = item as TVSerieModel;
-                                  return (
-                                      <CardMovie
-                                          url_img={response.poster_path}
-                                          key={index}
-                                          anio={"no tiene"}
-                                          media_type={response.media_type}
-                                          title={response.name}
-                                      />
-                                  );
-                          }
-                      })}
-            </div> */}
         </>
     );
 };

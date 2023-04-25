@@ -7,7 +7,7 @@
     /* background-image: var(--url-imagen); */
     background-repeat: no-repeat;
     background-size: cover;
-    width: 70%;
+    width: 90%;
     /* display: flex; */
     /* flex-direction: column; */
     display: inline-block;
@@ -36,4 +36,16 @@
 
 .detail__anio-type__anio, .detail__anio-type__type {
     margin-right: 10px;
+}
+
+.loading-trending{
+    margin-left: 10px;
+    display: inline-block;
+}
+
+@media screen and (min-width: 576px) {
+    .container-card-trending {
+        width: 90%;
+        /* height: 150px; */
+    }
 }

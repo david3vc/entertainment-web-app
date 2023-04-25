@@ -5,7 +5,13 @@
 
 .contenido__overview{
     width: 100%;
+    /* overflow: hidden; */
+    /* padding: 15px; */
 }
+
+/* .contenido__overview::-webkit-scrollbar{
+    display: none;
+  } */
 
 .contenido__tagline, .contenido__overview__caption{
     margin-top: 10px;
@@ -21,7 +27,7 @@
     display: block;
     /* width: 100%; */
     /* position: relative; */
-    overflow: scroll;
+    overflow: hidden;
     
 }
 
@@ -29,4 +35,18 @@
     display: flex;
     margin: auto;
     margin-top: 15px;
+}
+
+@media screen and (min-width: 992px) {
+    .contenido__tagline{
+        font-size: 16px;
+    }
+
+    .contenido__overview__caption{
+        font-size: 22px;
+    }
+
+    .contenido__overview__paragraph{
+        font-size: 16px;
+    }
 }

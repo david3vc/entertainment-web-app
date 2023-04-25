@@ -21,7 +21,8 @@ export const Boton = styled.button`
 	font-weight: 500;
 	transition: .3s ease all;
 	&:hover {
-		background: #0066FF;
+		background: #fff;
+		color: #fc4747;
 	}
 `;
 

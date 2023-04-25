@@ -2,20 +2,29 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 interface NavBarTabProps {
-  path: string;
-  label: string;
+    path: string;
+    label: string;
+    icon: string;
+    handleClick?: () => void;
 }
 
-export const NavBarTab: React.FC<NavBarTabProps> = ({ path, label }) => {
-  return (
-    <NavLink
-      to={path}
-      end
-      className={({ isActive }) =>
-        "nav-bar__tab " + (isActive ? "nav-bar__tab--active" : "")
-      }
-    >
-      {label}
-    </NavLink>
-  );
+export const NavBarTab: React.FC<NavBarTabProps> = ({
+    path,
+    label,
+    handleClick,
+    icon,
+}) => {
+    return (
+        <NavLink
+            onClick={handleClick}
+            to={path}
+            end
+        >
+            {icon !== "" ? (
+                <img src={icon} alt="" />
+            ) : (
+                <span className="">{label}</span>
+            )}
+        </NavLink>
+    );
 };

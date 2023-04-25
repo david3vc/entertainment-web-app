@@ -65,13 +65,6 @@ export const MobileNavBar: React.FC = () => {
 
                 {isMobileMenuOpen() && (
                     <div className="mobile-nav-bar__menu">
-                        {/* <MobileNavBarTabs handleClick={closeMobileMenu} /> */}
-                        {/* <MobileNavBarTab
-                            path="/profile"
-                            label="Profile"
-                            handleClick={closeMobileMenu}
-                            icon=""
-                        /> */}
                         <div className="profile__menu">
                             <NavLink
                                 // onClick={handleClick}

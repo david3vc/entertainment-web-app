@@ -50,12 +50,6 @@ const Search = ({
     const { data: dataMovie, mutateAsync: searchMovie, isSuccess: isMovie } = useSearchMovie();
     const { data: dataTVSeries, mutateAsync: searchTVSeries, isSuccess: isTVSeries } = useSearchTVSeries();
 
-    // const {
-    //     data: dataTrending,
-    //     mutateAsync: searchTrending,
-    //     isSuccess: isTrending,
-    // } = useGetTrending();
-
     useEffect(() => {
         if (isSuccess) {
             setData(data);
@@ -63,14 +57,6 @@ const Search = ({
             setSearch(formik.values.query);
         } else setIsSearchMulti(false);
     }, [isSuccess]);
-
-    // useEffect(() => {
-    //     if (isTrending) {
-    //         setData(dataTrending);
-    //         setIsSearchMulti(true);
-    //         setSearch(formik.values.query);
-    //     } else setIsSearchMulti(false);
-    // }, [isTrending]);
 
     useEffect(() => {
         if (isMovie) {

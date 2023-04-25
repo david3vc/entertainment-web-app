@@ -42,7 +42,7 @@
     margin-top: 32px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     .profile-grid {
         margin-top: 2.4rem;
     }
@@ -63,6 +63,7 @@
         border-radius: 50%;
 
         border: solid 0.16rem var(--white);
+        margin-bottom: 5px;
     }
 
     .profile__title {

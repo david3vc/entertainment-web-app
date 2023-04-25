@@ -150,7 +150,15 @@
   border-radius: 15px;
 }
 
-@media only screen and (max-width: 640px) and (hover: none) {
+@media screen and (min-width: 576px){
+  .mobile-nav-bar__container {
+    margin: 15px;
+    width: 90%;
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (hover: none) {
   .mobile-nav-bar__tab:hover {
     color: var(--white);
   }
@@ -160,7 +168,7 @@
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .mobile-nav-bar__container {
     display: flex;
   }

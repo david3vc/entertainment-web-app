@@ -19,12 +19,7 @@ export const MobileNavBarTab: React.FC<MobileNavBarTabProps> = ({
             onClick={handleClick}
             to={path}
             end
-            // className={({ isActive }) =>
-            //     "mobile-nav-bar__tab " +
-            //     (isActive ? "mobile-nav-bar__tab--active" : "")
-            // }
         >
-            {/* {label} */}
             {
                 icon !== "" ? (
                     <img src={icon} alt="" />

@@ -37,3 +37,11 @@
 .bottom-logout{
     margin-top: 50px;
 }
+
+@media screen and (min-width: 992px) {
+    .container-profile{
+        padding-top: 100px;
+        width: 45%;
+        margin: auto;
+    }
+}

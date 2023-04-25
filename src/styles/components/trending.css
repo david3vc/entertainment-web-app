@@ -6,7 +6,29 @@
     margin: 10px;
 }
 
-.trending-term{
+.trending-term {
     margin: 20px 0px 0px 20px;
-    font-size: 18px
+    font-size: 18px;
+}
+
+@media screen and (min-width: 576px) {
+    .trending-term {
+        margin-left: 40px;
+    }
+    .container-trending {
+        width: 90%;
+        padding-top: 10px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .trending-term {
+        margin-left: 25px;
+    }
+    .container-trending {
+        width: 100%;
+        padding-top: 10px;
+        margin: auto;
+    }
 }

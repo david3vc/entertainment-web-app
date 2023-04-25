@@ -14,3 +14,23 @@
     margin: 20px 0px 0px 20px;
     font-size: 18px;
 }
+
+@media screen and (min-width: 576px) {
+    .recommended-tipo-vista, .found-results{
+        margin-left: 36px;
+    }
+    .recommended-container {
+        width: 91%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .recommended-tipo-vista, .found-results{
+        margin-left: 25px;
+    }
+    .recommended-container {
+        width: 100%;
+        margin: auto;
+    }
+}

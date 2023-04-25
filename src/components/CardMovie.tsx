@@ -189,11 +189,9 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
                         <div className="contenido__generos">
                             {(dataMovie?.genres?.length ?? 0) > 0 &&
                                 dataMovie?.genres.map((genre, index) =>
-                                    index !== dataMovie?.genres?.length - 1 ? (
-                                        <span>{genre.name}, </span>
-                                    ) : (
-                                        <span>{genre.name}</span>
-                                    )
+                                    <>
+                                        <span className="contenido__generos__genre">{genre.name}</span>{' '}
+                                    </>
                                 )}
                             <span>
                                 {" "}
@@ -246,11 +244,9 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
                         <div className="contenido__generos">
                             {(dataTv?.genres?.length ?? 0) > 0 &&
                                 dataTv?.genres.map((genre, index) =>
-                                    index !== dataTv?.genres?.length - 1 ? (
-                                        <span>{genre.name}, </span>
-                                    ) : (
-                                        <span>{genre.name}</span>
-                                    )
+                                    <>
+                                        <span className="contenido__generos__genre">{genre.name}</span>{' '}
+                                    </>
                                 )}
                         </div>
                         <div className="contenido__tagline">
@@ -294,7 +290,7 @@ const CardMovie = ({ anio, media_type, title, url_img, item }: baseProps) => {
             >
                 <YouTube
                     videoId={trailer?.key}
-                    opts={{ width: "100%", height: "200px" }}
+                    opts={{ width: "100%", height: "500px" }}
                 />
             </Modal>
         </>

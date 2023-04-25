@@ -8,6 +8,10 @@ import { TIPO_VISTA } from "../constants";
 import useGetTrending from "../hooks/useGetTrending";
 import { Boton } from "../components/modal/estilos";
 import useSearchMulti from "../hooks/useSearchMulti";
+import LoadingList from "../components/LoadingList";
+import LoadingTrending from "../components/LoadingTrending";
+import PageLoading from "../components/PageLoading";
+import { PageFooter } from "../components/page-footer";
 
 const Home = () => {
     const [data, setData] = useState<SearchMultiResponseModel>();
@@ -51,6 +55,7 @@ const Home = () => {
     };
 
     return (
+        <>
         <PageLayout>
             <>
                 <Search
@@ -85,6 +90,8 @@ const Home = () => {
                 )}
             </>
         </PageLayout>
+        
+        </>
     );
 };
 

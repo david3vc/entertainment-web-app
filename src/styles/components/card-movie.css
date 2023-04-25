@@ -57,3 +57,30 @@
     font-size: 13px;
     font-weight: bold;
 }
+
+.loading{
+    margin: 15px 0px;
+    /* display: flex; */
+}
+
+.contenido__generos__genre{
+    padding: 2px 5px;
+    border-radius: 9px;
+    background-color: var(--rojo-naranja);
+}
+
+@media screen and (min-width: 576px) {
+    .container-card-movie {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container-card-movie {
+        width: 25%;
+    }
+
+    .container-card-movie__image{
+        cursor: pointer;
+    }
+}
